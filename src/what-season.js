@@ -15,7 +15,7 @@ function getSeason(date) {
   if (!date) return 'Unable to determine the time of year!';
 
   try {
-      date.getTime();
+      date.getTime()
       const m = date.getMonth();
 
       switch (m) {
@@ -31,8 +31,9 @@ function getSeason(date) {
         default: return 'winter';
       }
   } catch {
-    throw new Error('Invalid date!');
+    throw new Error('Invalid date!')
   }
+
 }
 
 module.exports = {
