@@ -17,9 +17,22 @@ const HALF_LIFE_PERIOD = 5730;
  * dateSample('WOOT!') => false
  *
  */
-function dateSample(/* sampleActivity */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+function dateSample(sampleActivity) {
+  if (typeof sampleActivity !== 'string' ||
+      +sampleActivity < 1 ||
+      +sampleActivity > MODERN_ACTIVITY ||
+      +sampleActivity !== +sampleActivity
+  ) return false;
+
+  //натуральный логарифм двух
+  const LN2 = Math.LN2;
+
+  //константа распада (cкорость убывания количества радиоактивных ядер)
+  const k = LN2 / HALF_LIFE_PERIOD;
+
+  const AGE_IN_YEARS = Math.log(MODERN_ACTIVITY / +sampleActivity) / k;
+
+  return Math.ceil(AGE_IN_YEARS);
 }
 
 module.exports = {
