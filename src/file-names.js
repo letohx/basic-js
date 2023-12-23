@@ -21,9 +21,8 @@ function renameFiles(names) {
   names.forEach(name => {
     let count = 1;
     if (result.includes(name)) {
-      const subResult = `${name}(${count})`;
-      while (result.includes(subResult)) count +=1;
-      result.push(subResult);
+      while (result.includes(`${name}(${count})`)) count +=1;
+      result.push(`${name}(${count})`);
     } else {
       result.push(name);
     }
